@@ -35,26 +35,61 @@ Answer the following data queries. Keep track of the SQL you write by pasting it
 
 ### find all customers that live in London. Returns 6 records.
 > This can be done with SELECT and WHERE clauses
+SELECT contact_name, country
+FROM customers
+WHERE city ='London'
+
+"Thomas Hardy"	    "UK"	"London"
+"Victoria Ashworth"	"UK"	"London"
+"Elizabeth Brown"	"UK"	"London"
+"Ann Devon"	        "UK"	"London"
+"Simon Crowther"	"UK"	"London"
+"Hari Kumar"	    "UK"	"London"
 
 
 ### find all customers with postal code 1010. Returns 3 customers.
 > This can be done with SELECT and WHERE clauses
 
+SELECT contact_name, postal_code
+FROM customers
+WHERE postal_code ='1010'
+
+"Patricio Simpson"	"1010"
+"Yvonne Moncada"	"1010"
+"Sergio Gutiérrez"	"1010"
 
 ### find the phone number for the supplier with the id 11. Should be (010) 9984510.
 > This can be done with SELECT and WHERE clauses
 
 
+SELECT supplier_id, phone
+FROM suppliers
+WHERE supplier_id = '11'
+
+11	"(010) 9984510"
+
 ### list orders descending by the order date. The order with date 1998-05-06 should be at the top.
 > This can be done with SELECT, WHERE, and ORDER BY clauses
 
+SELECT order_date, order_id
+FROM orders
+ORDER BY order_date DESC
+
+"1998-05-06"	11074
+"1998-05-06"	11077
+"1998-05-06"	11076
+"1998-05-06"	11075
 
 ### find all suppliers who have names longer than 20 characters. You can use `length(company_name)` to get the length of the name. Returns 11 records.
 > This can be done with SELECT and WHERE clauses
 
+SELECT company_name
+FROM suppliers
+WHERE length(company_name)>20;
 
 ### find all customers that include the word 'MARKET' in the contact title. Should return 19 records.
 > This can be done with SELECT and a WHERE clause using the LIKE keyword
+
 
 > Don't forget the wildcard '%' symbols at the beginning and end of your substring to denote it can appear anywhere in the string in question
 
